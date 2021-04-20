@@ -14,4 +14,4 @@ if(NOT Poco_FOUND)
 endif()
 
 add_executable(pexa main.cpp)
-target_link_libraries(pexa Poco::Foundation)
+target_link_libraries(pexa PUBLIC Poco::Foundation)

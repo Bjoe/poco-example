@@ -2,16 +2,12 @@ cmake_minimum_required(VERSION 3.11)
 
 project(poco-example)
 
-find_package(Poco CONFIG COMPONENTS Foundation)
-if(NOT Poco_FOUND)
-  include(FetchContent)
-  FetchContent_Declare(
-      Poco
-      GIT_REPOSITORY https://github.com/pocoproject/poco.git
-      GIT_TAG        poco-1.10.1-release
-    )
-  FetchContent_MakeAvailable(Poco)
-endif()
+include(FetchContent)
+FetchContent_Declare(
+  Poco
+  URL https://github.com/pocoproject/poco/archive/refs/tags/poco-1.10.1-release.zip
+)
+FetchContent_MakeAvailable(Poco)
 
-add_executable(pexa main.cpp)
-target_link_libraries(pexa PUBLIC Poco::Foundation)
+add_executable(pocoex main.cpp)
+target_link_libraries(pocoex PUBLIC Poco::Foundation)
